@@ -31,17 +31,6 @@ class AptbackApplicationTests {
     }
 
     @Test
-    void update() {
-        // 更新数据
-        User user2 = new User();
-        user2.setId(2);
-        user2.setUserName("霜霜");
-        user2.setPassword("123");
-        user2.setRole("user");
-        userMapper.update(user2);
-    }
-
-    @Test
     public void mybatisPlus(){
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_name","admin");
