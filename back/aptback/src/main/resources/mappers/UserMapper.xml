@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.aptback.mapper.UserMapper">
+
+    <!-- 1. 新增 -->
+    <insert id="add" parameterType="com.example.aptback.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(user_name,password,role)
+        values (#{userName},#{password},#{role})
+    </insert>
+    <!-- 2. 删除 -->
+    <delete id="deleteById">
+        delete from user where id = #{id}
+    </delete>
+    <!-- 3. 更新 -->
+    <update id="update" parameterType="com.example.aptback.entity.User">
+        update user
+        set user_name = #{userName},password = #{password},role = #{role}
+        where id = #{id}
+    </update>
+    <!-- 4. 查询单个 -->
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.example.aptback.entity.User">
+        select * from user where id = #{id}
+    </select>
+    <!-- 5. 查询所有 -->
+    <select id="selectAll" resultType="com.example.aptback.entity.User">
+        select id,user_name,role from user
+    </select>
+</mapper>
